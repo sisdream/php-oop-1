@@ -8,7 +8,23 @@
     public $vote;
     public $is_best_seller;
 
+    function __construct(
+        string $type,
+        string $title,
+        string $language,
+        $vote = false
+    ) {
+        $this->type = $type;
+        $this->title = $title;
+        $this->og_language = $language;
+        $this->vote = $vote;
+        $this->set_best_seller();
+    }
 
+    public function set_best_seller()
+    {
+        $this->is_best_seller = $this->vote >= 8 ? true : false;
+    }    
 }
 ?>
 
@@ -33,7 +49,7 @@
                 </tr>
             </thead>
             <tbody>
-          
+             
             </tbody>
         </table>
     </div>
