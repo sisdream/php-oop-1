@@ -24,7 +24,15 @@
     public function set_best_seller()
     {
         $this->is_best_seller = $this->vote >= 8 ? true : false;
-    }    
+    }
+    public function get_vote()
+    {
+        if ($this->vote == false) {
+            return 'non ci sono voti per questo titolo';
+        } else {
+            return $this->vote;
+        }
+    }
 }
 ?>
 
@@ -49,7 +57,15 @@
                 </tr>
             </thead>
             <tbody>
-             
+                <?php foreach ($productions as $production) : ?>
+                    <tr>
+                        <th><?= $production->type ?></th>
+                        <td><?= $production->title ?></td>
+                        <td><?= $production->og_language ?></td>
+                        <td><?= $production->get_vote() ?></td>
+                        <td><?php echo ($production->is_best_seller) ? 'YES' : 'NO' ?></td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
