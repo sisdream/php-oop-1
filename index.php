@@ -1,5 +1,15 @@
 <?php
     require_once __DIR__ . '/db/Productions.php';
+     
+    class Production{
+    public $type;
+    public $title;
+    public $og_language;
+    public $vote;
+    public $is_best_seller;
+
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-
+          
             </tbody>
         </table>
     </div>
