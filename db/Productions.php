@@ -1,4 +1,5 @@
 <?php
+
 $productions = [
     $fight_club = new Production (new Movie(139, '1999'), new Genre('thriller'),'Fight Club', 'inglese', 8),
     $mare_fuori = new Production (new Serie(4, '23/09/2020'), new Genre('drammatico'), 'Mare Fuori', 'italiano'),
