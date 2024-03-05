@@ -1,5 +1,7 @@
 <?php
     require_once __DIR__ . '/db/Productions.php';
+    require_once __DIR__ . '/Models/Movie.php';
+    require_once __DIR__ . '/Models/Serie.php';  
      
     class Production{
     public $type;
@@ -52,6 +54,9 @@
                     <th scope="col">Type</th>
                     <th scope="col">Title</th>
                     <th scope="col">Original language</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">First release</th>
+                    <th scope="col">Genre</th>
                     <th scope="col">Vote</th>
                     <th scope="col">Best Seller</th>
                 </tr>
