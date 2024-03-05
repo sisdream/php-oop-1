@@ -26,7 +26,7 @@ require_once __DIR__ . '/db/Productions.php';
                     <th scope="col">Original language</th>
                     <th scope="col">Duration</th>
                     <th scope="col">First release</th>
-                    <th scope="col">Genre</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Vote</th>
                     <th scope="col">Best Seller</th>
                 </tr>
@@ -34,11 +34,26 @@ require_once __DIR__ . '/db/Productions.php';
             <tbody>
                 <?php foreach ($productions as $production) : ?>
                     <tr>
-                        <th><?= $production->type ?></th>
+                        <td><?= get_class($production->type) ?></td>
                         <td><?= $production->title ?></td>
                         <td><?= $production->og_language ?></td>
+                        <td>
+                            <?php if (get_class($production->type) == 'Movie') { ?>
+                                <?= $production->type->duration ?> min
+                                <?php } elseif (get_class($production->type) == 'Serie') { ?>
+                                <?= $production->type->seasons ?> stagioni
+                            <?php } ?>
+                        </td>
+                        <td>
+                            <?php if (get_class($production->type) == 'Movie') { ?>
+                                <?= $production->type->release_date ?>
+                                <?php } elseif (get_class($production->type) == 'Serie') { ?>
+                                <?= $production->type->first_air_date ?>
+                            <?php } ?>
+                        </td>
+                        <td><?= $production->genre->name ?></td>
                         <td><?= $production->get_vote() ?></td>
-                        <td><?php echo ($production->is_best_seller) ? 'YES' : 'NO' ?></td>
+                        <td><?= ($production->is_best_seller) ? 'YES' : 'NO' ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
