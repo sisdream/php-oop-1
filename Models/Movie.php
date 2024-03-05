@@ -1,9 +1,7 @@
 <?php
-class Movie
-{
+class Movie{
     public $duration;
     public $release_date;
-
     function __construct(
         $duration,
         string $release_date = ''
